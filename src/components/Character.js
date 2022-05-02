@@ -1,37 +1,28 @@
 // Write your Character component here
-
-import React, {useState, useEffect} from 'react'
-import styled from 'styled-components'
-import axios from 'axios'
-
-const StyledCharacter= styled.div`
-border: 1px solid lemonchiffon;
-border-radius: 20%;
-margin: 5%
-`
-const StyledButton= styled.button`
-background-color:coral;
-color:white;
-`
-const CharacterItem = (props) => {
-    const[button, setButton]= useState(true)
-
-    const {character} = props
+import React from 'react';
+import axios from 'axios';
+import styled, { keyframes } from 'styled-components';
 
 
-   const buttonClick = () => {
-    setButton(!button)
-   }
 
 
-    return(
-       <StyledCharacter >
-        <h2>{character.name}</h2>
-        <StyledButton >Want To Learn More?</StyledButton>
-          {<p>{`hailing from ${character.homeworld}, ${character.name} is a  human with ${character.hair_color} hair, and ${character.eye_color} eyes.`}</p> }
-      </StyledCharacter>
-    )
+
+
+
+const Character = (props) => {
+  console.log(props);
+
+  const {nameObj} = props;
+
+  return (
+      <div className= "Character">
+           <h1 alt = {nameObj.name}> {nameObj.name} </h1>
+      </div>
+
+  )
+
+
+
 }
 
-
-export default CharacterItem 
+export default Character;  
